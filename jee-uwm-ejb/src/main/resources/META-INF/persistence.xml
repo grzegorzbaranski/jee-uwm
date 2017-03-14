@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://xmlns.jcp.org/xml/ns/persistence
+        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="HIBERNATE_SOL"
+		transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- If you are running in a production environment, add a managed data 
+			source, this example data source is just for development and testing! -->
+		<!-- The datasource is deployed as <EAR>/META-INF/jee-uwm-ds.xml, you can 
+			find it in the source at ear/src/main/application/META-INF/jee-uwm-ds.xml -->
+		<jta-data-source>java:/jeeuwmDataSource</jta-data-source>
+		<class>pl.zetosoftware.jeeuwm.model.Member</class>
+		<class>pl.zetosoftware.jeeuwm.model.uwm.Gmina</class>
+		<class>pl.zetosoftware.jeeuwm.model.uwm.Miejscowosc</class>
+		<class>pl.zetosoftware.jeeuwm.model.uwm.Powiat</class>
+		<class>pl.zetosoftware.jeeuwm.model.uwm.Wojewodztwo</class>
+		<!-- Tylko klasy encji z listy -->
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+		<properties>
+			<!-- UWAGA !!! NIE ZMIENIAJ USTAWIEN Logowanie SQL-a ustaw w konfiguracji 
+				serwera. -->
+			<!-- Properties for Hibernate -->
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="use_sql_comments" value="false"></property>
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.max_fetch_depth" value="0" />
+			<!-- -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="true" />
+			<property name="hibernate.cache.use_minimal_puts" value="true" />
+			<property name="hibernate.cache.use_query_cache" value="true" />
+			<property name="hibernate.default_batch_fetch_size" value="200" />
+			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.EHCacheProvider" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
