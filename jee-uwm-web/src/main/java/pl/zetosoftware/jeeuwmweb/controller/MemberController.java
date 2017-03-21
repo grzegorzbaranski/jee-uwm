@@ -31,6 +31,7 @@ import pl.zetosoftware.jeeuwm.service.MemberRegistration;
 // EL name
 // Read more about the @Model stereotype in this FAQ:
 // http://www.cdi-spec.org/faq/#accordion6
+// test git
 @Model
 public class MemberController {
 
