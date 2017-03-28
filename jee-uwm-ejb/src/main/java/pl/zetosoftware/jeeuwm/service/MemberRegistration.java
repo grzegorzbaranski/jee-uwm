@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 @Stateless
 public class MemberRegistration {
 /*
-tu bylem :-)
+tu bylem :-) nawet dwa razy
  */
     @Inject
     private Logger log;
