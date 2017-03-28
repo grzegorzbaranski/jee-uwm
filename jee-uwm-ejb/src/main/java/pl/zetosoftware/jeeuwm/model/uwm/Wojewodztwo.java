@@ -1,6 +1,7 @@
 package pl.zetosoftware.jeeuwm.model.uwm;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 
@@ -22,9 +23,14 @@ public class Wojewodztwo implements Serializable {
 	@Column(name="kod_teryt")
 	private String kodTeryt;
 
+	@Column(name = "nazwa")
 	private String nazwa;
 
+	@Column(name = "skrot")
 	private String skrot;
+
+	@OneToMany(mappedBy = "wojewodztwo")
+	List<Powiat> listaPowiatow;
 
 	public Wojewodztwo() {
 	}

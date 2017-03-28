@@ -19,12 +19,14 @@ public class Gmina implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="GMINA_ID_GENERATOR")
 	private Long id;
 
-	@Column(name="fk_powiat")
-	private Long fkPowiat;
+	@OneToOne
+	@JoinColumn(name="fk_powiat")
+	private Powiat powiat;
 
 	@Column(name="kod_teryt")
 	private String kodTeryt;
 
+	@Column(name="nazwa")
 	private String nazwa;
 
 	public Gmina() {
@@ -36,14 +38,6 @@ public class Gmina implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getFkPowiat() {
-		return this.fkPowiat;
-	}
-
-	public void setFkPowiat(Long fkPowiat) {
-		this.fkPowiat = fkPowiat;
 	}
 
 	public String getKodTeryt() {
@@ -62,4 +56,11 @@ public class Gmina implements Serializable {
 		this.nazwa = nazwa;
 	}
 
+	public Powiat getPowiat() {
+		return powiat;
+	}
+
+	public void setPowiat(Powiat powiat) {
+		this.powiat = powiat;
+	}
 }

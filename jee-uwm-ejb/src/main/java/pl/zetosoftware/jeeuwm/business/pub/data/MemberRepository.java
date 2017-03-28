@@ -24,6 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import pl.zetosoftware.jeeuwm.model.Member;
+import pl.zetosoftware.jeeuwm.model.Member_;
 
 import java.util.List;
 
@@ -54,8 +55,8 @@ public class MemberRepository {
         Root<Member> member = criteria.from(Member.class);
         // Swap criteria statements if you would like to try out type-safe criteria queries, a new
         // feature in JPA 2.0
-        // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
-        criteria.select(member).orderBy(cb.asc(member.get("name")));
+        criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
+       //criteria.select(member).orderBy(cb.asc(member.get("name")));
         return em.createQuery(criteria).getResultList();
     }
 }

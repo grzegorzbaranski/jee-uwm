@@ -20,6 +20,10 @@
 		<class>pl.zetosoftware.jeeuwm.model.uwm.Miejscowosc</class>
 		<class>pl.zetosoftware.jeeuwm.model.uwm.Powiat</class>
 		<class>pl.zetosoftware.jeeuwm.model.uwm.Wojewodztwo</class>
+		<class>pl.zetosoftware.jeeuwm.model.firma.kontrahent.KontrahentOB</class>
+		<class>pl.zetosoftware.jeeuwm.model.firma.kontrahent.KontrahentFirmaOB</class>
+		<class>pl.zetosoftware.jeeuwm.model.firma.kontrahent.KontrahentOsobaFizycznaOB</class>
+
 		<!-- Tylko klasy encji z listy -->
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 

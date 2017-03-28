@@ -19,8 +19,9 @@ public class Miejscowosc implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MIEJSCOWOSC_ID_GENERATOR")
 	private Long id;
 
-	@Column(name="fk_gmina")
-	private Long fkGmina;
+	@OneToOne
+	@JoinColumn(name="fk_gmina")
+	private Gmina gmina;
 
 	@Column(name="fk_kraj")
 	private Long fkKraj;
@@ -41,13 +42,6 @@ public class Miejscowosc implements Serializable {
 		this.id = id;
 	}
 
-	public Long getFkGmina() {
-		return this.fkGmina;
-	}
-
-	public void setFkGmina(Long fkGmina) {
-		this.fkGmina = fkGmina;
-	}
 
 	public Long getFkKraj() {
 		return this.fkKraj;

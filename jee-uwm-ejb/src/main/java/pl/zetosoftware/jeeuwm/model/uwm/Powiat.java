@@ -19,8 +19,9 @@ public class Powiat implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="POWIAT_ID_GENERATOR")
 	private Long id;
 
-	@Column(name="fk_woj")
-	private Long fkWoj;
+	@ManyToOne
+	@JoinColumn(name = "fk_woj")
+	private Wojewodztwo wojewodztwo;
 
 	@Column(name="kod_teryt")
 	private String kodTeryt;
@@ -38,12 +39,12 @@ public class Powiat implements Serializable {
 		this.id = id;
 	}
 
-	public Long getFkWoj() {
-		return this.fkWoj;
+	public Wojewodztwo getWojewodztwo() {
+		return wojewodztwo;
 	}
 
-	public void setFkWoj(Long fkWoj) {
-		this.fkWoj = fkWoj;
+	public void setWojewodztwo(Wojewodztwo wojewodztwo) {
+		this.wojewodztwo = wojewodztwo;
 	}
 
 	public String getKodTeryt() {
