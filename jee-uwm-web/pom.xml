@@ -16,7 +16,7 @@
 
 	<dependencies>
 
-		<!-- Dependency on the EJB module so we can use it's services if needed -->
+		<!-- Dependency on the EJB module so we can use it's services if needed , pozdrawiam-->
 		<dependency>
 			<groupId>pl.zetosoftware</groupId>
 			<artifactId>jee-uwm-ejb</artifactId>
