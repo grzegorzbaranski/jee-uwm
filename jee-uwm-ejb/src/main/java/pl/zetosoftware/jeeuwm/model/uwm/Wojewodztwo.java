@@ -10,7 +10,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Wojewodztwo.findAll", query="SELECT w FROM Wojewodztwo w")
+@NamedQuery(name="Wojewodztwo.findAll", query="SELECT w FROM Wojewodztwo w.nazwa =:parmNazwa")
 @Table(schema="uwm" ,name="wojewodztwo")
 public class Wojewodztwo implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -20,16 +20,16 @@ public class Wojewodztwo implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="WOJEWODZTWO_ID_GENERATOR")
 	private Long id;
 
-	@Column(name="kod_teryt", length = 20, nullable = false	)
+	@Column(name="kod_teryt", length = 20, nullable = false)
 	private String kodTeryt;
 
-	@Column(name = "nazwa", nullable = false, length = 100)
+	@Column(name = "nazwa", length = 100, nullable = false)
 	private String nazwa;
 
-	@Column(name = "skrot",	nullable = false, length = 2)
+	@Column(name = "skrot", length = 2, nullable = false)
 	private String skrot;
 
-	@OneToMany(mappedBy = "wojewodztwo")
+	@OneToMany(mappedBy = "wojewodztwo", fetch = FetchType.LAZY)
 	List<Powiat> listaPowiatow;
 
 	public Wojewodztwo() {

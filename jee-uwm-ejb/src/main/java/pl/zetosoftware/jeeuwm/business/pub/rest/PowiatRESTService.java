@@ -63,12 +63,6 @@ public class PowiatRESTService {
     }
 
     @GET
-    @Path("/powiatWgWoj/{nazwaWoj}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response findPowiatLikeNazwaWoj(@PathParam("nazwaWoj") String nazwaWoj) {
-        return  powiatRepository.findPowiatLikeNazwaWoj(nazwaWoj);
-    }
-    @GET
     @Path("/powiatAll")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Powiat> powiatAll() {
@@ -76,5 +70,26 @@ public class PowiatRESTService {
         return powiatRepository.findAllOrderedByNazwa();
     }
 
+    @GET
+    @Path("/powiatWgWoj/{nazwaWoj}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findPowiatLikeNazwaWoj(@PathParam("nazwaWoj") String nazwaWoj) {
+        return  powiatRepository.findPowiatLikeNazwaWoj(nazwaWoj);
+    }
+
+    @GET
+    @Path("/powiatDTOWgWoj/{nazwaWoj}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response find2PowiatLikeNazwaWoj(@PathParam("nazwaWoj") String nazwaWoj) {
+        List<Powiat> lista = powiatRepository.find2PowiatLikeNazwaWoj(nazwisko);
+        List<PowiatDTO> listaDTO = new Arraylist<>();
+        for(Powiat powiat: lista){
+            PowiatDTO dto = new PowiatDTO(powiat.getId(), powiat.getWojewodztwo().getId(), powiat.getWojewodztwo().getKodTeryt(), powiat.getNazwa());
+            listaDTO.add(dto);
+        }
+
+        Response wynik = Response.ok(listaDTO).build();
+        return  powiatRepository.findPowiatLikeNazwaWoj(nazwaWoj);
+    }
 
 }
