@@ -20,13 +20,13 @@ public class Wojewodztwo implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="WOJEWODZTWO_ID_GENERATOR")
 	private Long id;
 
-	@Column(name="kod_teryt")
+	@Column(name="kod_teryt", length = 20, nullable = false	)
 	private String kodTeryt;
 
-	@Column(name = "nazwa")
+	@Column(name = "nazwa", nullable = false, length = 100)
 	private String nazwa;
 
-	@Column(name = "skrot")
+	@Column(name = "skrot",	nullable = false, length = 2)
 	private String skrot;
 
 	@OneToMany(mappedBy = "wojewodztwo")
